@@ -1,6 +1,15 @@
-//BLOQUE 1: EJERCICIOS DE CADENAS DE TEXTO
+//Este archivo a sido realizado por: Derick Lizandro Vinces Ronquillo.
+//Carrera: Ingnieria de software.
+//Universidad: Universidad Estatal de Milagro (UNEMI).
+//Asignatura: Algoritmo y logica de programacion.
+//Paralelo: B1
+//Docente: MSc. Daniel Vera.
+//Fecha de creacion: 24/10/2025
+//Fecha entrega: 28/10/2025
 
-//1. Contar caracteres de una frase publicitaria
+//BLOQUE 1: EJERCICIOS DE CADENAS DE TEXTO.
+
+//1. Contar caracteres de una frase publicitaria.
 function contarCaracteres(){
     let frase = prompt("Ingrese una frase publicitaria:");
     let cantidadCaracteres = frase.length;
@@ -9,7 +18,7 @@ function contarCaracteres(){
 }
 contarCaracteres();
 
-//2. Contar apariciones de una vocal en un titulo
+//2. Contar apariciones de una vocal en un titulo.
 function contarVocalEnTitulo(){
     let titulo = prompt("Ingrese el título de una película:");
     let vocal = prompt("Ingrese una vocal para contar sus apariciones en el título:");
@@ -24,7 +33,7 @@ function contarVocalEnTitulo(){
 }
 contarVocalEnTitulo();
 
-//3. Invertir un nombre de producto
+//3. Invertir un nombre de producto.
 function invertirNombreProducto(){
     let producto = prompt("Ingrese el nombre de un producto:");
     let nombreInvertido = "";
@@ -36,7 +45,7 @@ function invertirNombreProducto(){
 }
 invertirNombreProducto();
 
-//4. Comparar longitudes de nombres de varias ciudades
+//4. Comparar longitudes de nombres de varias ciudades.
 function compararLongitudesCaracteres(){
     let cantidadCiudades = parseInt(prompt("¿Cuántas ciudades desea ingresar?"));
     let ciudades = [];
@@ -55,7 +64,7 @@ function compararLongitudesCaracteres(){
 }
 compararLongitudesCaracteres();
 
-//5. Obtener iniciales de un cargo profesional
+//5. Obtener iniciales de un cargo profesional.
 function obtenerInicialesCargo(){
     let cargo = prompt("Ingrese un cargo profesional (por ejemplo, 'Ingeniero de Software'): ");
     let iniciales = "";
@@ -69,9 +78,9 @@ function obtenerInicialesCargo(){
 }
 obtenerInicialesCargo();
 
-//BLOQUE 2: VERSION CON ARREGLOS DEL BLOQUE 1
+//BLOQUE 2: VERSION CON ARREGLOS DEL BLOQUE 1.
 
-//1. Dado un arreglo de frases publicitarias, contar caracteres de cada frase
+//1. Dado un arreglo de frases publicitarias, contar caracteres de cada frase.
 function contarCaracteresArreglo(){
     let cantidadFrases = parseInt(prompt("¿Cuántas frases publicitarias desea ingresar?: "));
     let frases = [];
@@ -262,4 +271,127 @@ function promedioParesImpares(){
 promedioParesImpares();
 
 //BLOQUE 4: VERSION CON ARREGLOS DEL BLOQUE 3.
+
+//1. Dado un arreglo de calificaciones de estudiantes, calcular el promedio solo de aquellas que sean mayores o iguales a 70.
+function promedioCalificacionesAltasArreglo(){
+    let cantidadCalificaciones = parseInt(prompt("¿Cuántas calificaciones desea ingresar?: "));
+    let calificaciones = [];
+    for (let i=0; i<cantidadCalificaciones; i++){
+        let calificacion = parseFloat(prompt(`Ingrese la calificación ${i+1}: `));
+        calificaciones.push(calificacion);
+    }
+    let suma = 0;
+    let contador = 0;
+    for (let i=0; i<calificaciones.length; i++){
+        if (calificaciones[i] >= 70){
+            suma += calificaciones[i];
+        contador++;
+        }   
+    }
+    let promedio = suma / contador;
+    alert("El promedio de las calificaciones mayores o iguales a 70 es: " + promedio.toFixed(2));
+}
+promedioCalificacionesAltasArreglo();
+
+//2. Dado un arreglo de números, contar cuántos son negativos.
+function contarNumerosNegativosArreglo(){
+    let cantidadNumeros = parseInt(prompt("¿Cuántos números desea ingresar?: "));
+    let numeros = [];
+    let contador = 0;
+    for (let i=0; i<cantidadNumeros; i++){
+        let numero = parseFloat(prompt(`Ingrese el número ${i+1}: `));
+        numeros.push(numero);
+    }
+    for ( let i=0; i<numeros.length; i++){
+        if (numeros[i]<0){
+            contador++;
+        }
+    }
+    alert("La cantidad de números negativos ingresados es: " + contador);
+}
+contarNumerosNegativosArreglo();
+
+//3. Dado un arreglo de edades de un grupo de personas, obtener el promedio de los mayores de edad (≥ 18 años) y de los menores de edad (< 18 años).
+function promedioEdadesMayoresMenoresArreglo(){
+    let cantidadPersonas = parseInt(prompt("¿Cuántas edades desea ingresar?: "));
+    let edades = [];
+    sumaMayores =0;
+    promedioMayores=0;
+    contadorMayores=0;
+    sumaMenores=0;
+    promedioMenores=0;
+    contadorMenores=0;
+    for (let i=0; i<cantidadPersonas; i++){
+        let edad = parseInt(prompt(`Ingrese la edad de la persona ${i+1}: `));
+        edades.push(edad);
+    }
+    for (let i=0; i<edades.length; i++){
+        if (edades[i]>=18){
+            sumaMayores += edades[i];
+            contadorMayores++;
+        }else{
+            sumaMenores += edades[i];
+            contadorMenores++;
+        }
+    }
+    promedioMayores = sumaMayores / contadorMayores;
+    promedioMenores = sumaMenores / contadorMenores;
+    console.log("Edades ingresadas: " + edades.join(", "));
+    console.log("Promedio de mayores de edad: " + promedioMayores.toFixed(2));
+    console.log("Promedio de menores de edad: " + promedioMenores.toFixed(2));
+}
+promedioEdadesMayoresMenoresArreglo();
+
+//4. Dado un arreglo de numeros, mostrar la tabla de multiplicar del 1 al 10 para cada uno.
+function tablaMultiplicarArreglo(){
+    let cantidadNumeros = parseInt(prompt("¿Cuántos números desea ingresar?: "));
+    let numeros = [];
+    for (let i=0; i<cantidadNumeros; i++){
+        let numero = parseInt(prompt(`Ingrese el número ${i+1}: `));
+        numeros.push(numero);
+    }
+    for (let i=0; i<numeros.length; i++){
+        let tabla = "";
+        for (let j=1; j<=10; j++){
+            tabla += `${numeros[i]} x ${j} = ${numeros[i] * j}\n`;
+        }
+        alert("Tabla de multiplicar del " + numeros[i] + ":\n\n" + tabla);
+   }
+}
+tablaMultiplicarArreglo();
+
+//5. Dado un arreglo de números, calcular el promedio de los números pares y de los números impares por separado.
+function promedioParesImparesArreglo(){
+    let cantidadNumeros = parseInt(prompt("¿Cuántos números desea ingresar?: "));
+    let numeros = [];
+    for (let i=0; i<cantidadNumeros; i++){
+        let numero = parseInt(prompt(`Ingrese el número ${i+1}: `));
+        numeros.push(numero);
+    }
+    let sumaPares =0;
+    let promedioPares=0;
+    let contadorPares=0;
+    let sumaImpares=0;
+    let promedioImpares=0;
+    let contadorImpares=0;
+    for (let i=0; i<numeros.length; i++){
+        if (numeros[i]%2===0){
+            sumaPares += numeros[i];
+            contadorPares++;
+        }else{
+            sumaImpares += numeros[i];
+            contadorImpares++;
+        }
+    }
+    promedioPares= sumaPares / contadorPares;
+    promedioImpares= sumaImpares / contadorImpares;
+    console.log("Números ingresados: " + numeros.join(", "));
+    console.log("Promedio de números pares: " + promedioPares.toFixed(2));
+    console.log("Promedio de números impares: " + promedioImpares.toFixed(2));
+}
+promedioParesImparesArreglo();
+
+//FIN PROGRAMA.
+
+
 
