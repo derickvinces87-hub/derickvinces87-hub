@@ -4,6 +4,7 @@
 //Asignatura: Algoritmo y logica de programacion.
 //Paralelo: B1
 //Docente: MSc. Daniel Vera.
+//Tarea #2 Semana #9.
 //Fecha de creacion: 24/10/2025
 //Fecha entrega: 28/10/2025
 
@@ -33,7 +34,7 @@ function contarVocalEnTitulo(){
 }
 contarVocalEnTitulo();
 
-//3. Invertir un nombre de producto.
+//3. Invertir el nombre de un producto.
 function invertirNombreProducto(){
     let producto = prompt("Ingrese el nombre de un producto:");
     let nombreInvertido = "";
