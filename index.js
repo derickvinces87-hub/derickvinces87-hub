@@ -165,4 +165,101 @@ obtenerInicialesCargosArreglo();
 
 //BLOQUE 3: EJERCICIOS INDIVIDUALES CON CICLOS.
 
-//
+//1. Dadas n calificaciones de estudiantes, calcular el promedio solo de aquellas que sean mayores o iguales a 70.
+function promedioCalificacionesAltas(){
+    let n = parseInt(prompt("¿Cuántas calificaciones desea ingresar?: "));
+    let suma = 0;
+    let contador = 0;
+    for (let i=0; i<n; i++){
+        let calificacion = parseFloat(prompt(`Ingrese la calificación ${i+1}: `));
+        if (calificacion >= 70){
+            suma += calificacion;
+            contador++;
+        }   
+    }
+    let promedio = suma / contador;
+    alert("El promedio de las calificaciones mayores o iguales a 70 es: " + promedio.toFixed(2));
+}
+promedioCalificacionesAltas();
+
+//2. Ingresar n números y contar cuántos son negativos.
+function contarNumerosNegativos(){
+    let cantidadNumeros = parseInt(prompt("¿Cuántos números desea ingresar?: "));
+    let contador=0;
+    for (let i=0; i<cantidadNumeros; i++){
+        let numero = parseFloat(prompt(`Ingrese el número ${i+1}: `));
+        if (numero < 0){
+            contador++;
+        }
+    }
+    alert("La cantidad de números negativos ingresados es: " + contador);
+}
+contarNumerosNegativos();
+
+//3. Dadas las edades de un grupo de personas, obtener el promedio de los mayores de edad (≥ 18 años) y de los menores de edad (< 18 años).
+function promedioEdadesMayoresMenores(){
+    let cantidadPersonas = parseInt(prompt("¿Cuántas edades desea ingresar?: "));
+    let sumaMayores = 0;
+    let contadorMayores = 0;
+    let promedioMayores = 0;
+    let sumaMenores = 0;
+    let contadorMenores = 0;
+    let promedioMenores = 0;
+    for (let i=0; i<cantidadPersonas; i++){
+        let edad = parseInt(prompt(`Ingrese la edad de la persona ${i+1}: `));
+        if (edad >= 18){
+            sumaMayores += edad;
+            contadorMayores++;
+        } else {
+            sumaMenores += edad;
+            contadorMenores++;
+        }   
+    }
+        promedioMayores = sumaMayores / contadorMayores;
+        promedioMenores = sumaMenores / contadorMenores;
+        console.log("Edades ingresadas: " + cantidadPersonas);
+        console.log("Promedio de mayores de edad: " + promedioMayores.toFixed(2));
+        console.log("Promedio de menores de edad: " + promedioMenores.toFixed(2));
+}
+promedioEdadesMayoresMenores();
+
+//4. Dado un solo número, mostrar su tabla de multiplicar del 1 al 10.
+function tablaMultiplicar(){
+    let numero = parseInt(prompt("Ingrese un número para mostrar su tabla de multiplicar: "));
+    let tabla = "";
+    for (let i=1; i<=10; i++){
+        tabla += `${numero} x ${i} = ${numero * i}\n`;
+    }
+    alert("Tabla de multiplicar del " + numero + ":\n\n" + tabla);
+}
+tablaMultiplicar();
+
+//5. Ingresar n números y calcular el promedio de los números pares y de los números impares por separado.
+function promedioParesImpares(){
+    let cantidadNumeros = parseInt(prompt("¿Cuántos números desea ingresar?: "));
+    let sumaPares = 0;
+    let contadorPares = 0;
+    let promedioPares = 0;
+    let sumaImpares = 0;
+    let contadorImpares = 0;
+    let promedioImpares = 0;
+    for (let i=0; i<cantidadNumeros; i++){
+        let numero = parseInt(prompt(`Ingrese el número ${i+1}: `));
+        if (numero % 2 === 0){
+            sumaPares += numero;
+            contadorPares++;
+        } else {
+            sumaImpares += numero;
+            contadorImpares++;
+        }   
+    }
+    promedioPares = sumaPares / contadorPares;
+    promedioImpares = sumaImpares / contadorImpares;
+    console.log("Números ingresados: " + cantidadNumeros);
+    console.log("Promedio de números pares: " + promedioPares.toFixed(2));
+    console.log("Promedio de números impares: " + promedioImpares.toFixed(2));
+}
+promedioParesImpares();
+
+//BLOQUE 4: VERSION CON ARREGLOS DEL BLOQUE 3.
+
