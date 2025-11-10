@@ -181,6 +181,279 @@ RestaSucesiva();
 
 //BLOQUE 2: VERSION CON ARREGLOS DE EL BLOQUE 1
 
+//Ejercicio 1: Serie de Fibonacci con arreglos
+function fibonacciArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números que desea usar para generar series Fibonacci:"));
+    let serie = [];
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ":"));
+        serie.push(numero);
+    }
+    let resultados = [];
+    for (let i = 0; i < serie.length; i++) {
+        let a = 0, b = 1, siguiente;
+        let resultado = [];
+        for (let j = 0; j < serie[i]; j++) {
+            resultado.push(a);
+            siguiente = a + b;
+            a = b;
+            b = siguiente;
+        }
+        resultados.push(resultado);
+    }
+    console.log("Series de Fibonacci generadas:");
+    console.log(resultados);
+}
+fibonacciArreglo();
+//Ejercicio 2: Divisores de varios numeros con arreglos
+function divisoresArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números para encontrar sus divisores:"));
+    let numeros = [];
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ":"));
+        numeros.push(numero);
+    }
+    let resultados = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let divisores = [];
+        for (let j = 1; j <= numeros[i]; j++) {
+            if (numeros[i] % j === 0) {
+                divisores.push(j);
+            }
+        }
+        resultados.push(divisores);
+    }
+    console.log(`Numeros ingresados: ${numeros}`);
+    console.log("Divisores de los números:");
+    console.log(resultados);
+}
+divisoresArreglo();
+
+//Ejercicio 3: Suma de divisores de varios numeros con arreglos
+function sumaDivisoresArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números para calcular la suma de sus divisores:"));
+    let numeros = [];
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ":"));
+        numeros.push(numero);
+    }
+    let resultados = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let suma = 0;
+        for (let j = 1; j <= numeros[i]; j++) {
+            if (numeros[i] % j === 0) {
+                suma += j;
+            }
+        }
+        resultados.push(suma);
+    }
+    console.log(`Numeros ingresados: ${numeros}`);
+    console.log("Suma de los divisores de los números:");
+    console.log(resultados);
+}
+sumaDivisoresArreglo();
+
+//Ejercicio 4: Numeros perfectos con arreglos
+function numerosPerfectosArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números que desea ingresar: "));    
+    let numeros = [];
+    let perfectos = [];
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
+        numeros.push(numero);
+    }
+    for (let i = 0; i < numeros.length; i++) {
+        let suma = 0;
+        for (let j = 1; j < numeros[i]; j++) {
+            if (numeros[i] % j === 0) {
+                suma += j;
+            }
+        }
+        if (suma === numeros[i]) {
+            perfectos.push(numeros[i]);
+        }
+    }
+    console.log("Números perfectos encontrados:");
+    console.log(perfectos);
+}
+numerosPerfectosArreglo();
+
+//Ejercicio 5: Numeros primos con arreglos
+function numerosPrimosArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de numeros que desea ingresar: "));
+    let numeros = [];
+    let primos = [];
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
+        numeros.push(numero);
+    }
+    for (let i = 0; i < numeros.length; i++) {
+        let contador = 0;
+        for (let j = 1; j <= numeros[i]; j++) {
+            if (numeros[i] % j === 0) {
+                contador++;
+            }
+        }
+        if (contador === 2) {
+            primos.push(numeros[i]);
+        }
+    }
+    console.log("Números primos encontrados:");
+    console.log(primos);
+}
+numerosPrimosArreglo();
+
+//Ejercicio 6: Invertir varios numeros con arreglos
+function invertirNumero() {
+  let n = parseInt(prompt("Ingrese la cantidad de números que desea invertir: "));  
+    let numeros = [];   
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
+        numeros.push(numero);
+    }   
+    let invertidos = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let numero = numeros[i];
+        let invertido = 0;
+        for (; numero > 0; numero = Math.floor(numero / 10)) {
+            let digito = numero % 10;
+            invertido = invertido * 10 + digito;
+        }
+        invertidos.push(invertido);
+    }
+    console.log("Números ingresados:", numeros);
+    console.log("Números invertidos:", invertidos); 
+}
+invertirNumero();
+
+//Ejercicio 7: Contar digitos de varios numeros con arreglos
+function contarDigitosArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números para contar sus dígitos: "));    
+    let numeros = [];
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
+        numeros.push(numero);
+    }
+    let conteos = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let numero = numeros[i];
+        let contador = 0;
+        for (; numero > 0; numero = Math.floor(numero / 10)) {
+            contador++;
+        }
+        conteos.push(contador);
+    }
+    console.log("Números ingresados:", numeros);
+    console.log("Cantidad de dígitos en cada número:", conteos);
+}
+contarDigitosArreglo();
+
+//Ejercicio 8: Factorial de varios numeros con arreglos
+function factorialArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números para calcular su factorial: "));  
+    let numeros = [];   
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
+        numeros.push(numero);
+    }  
+    let factoriales = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let numero = numeros[i];
+        let factorial = 1;
+        for (let j = 1 ;j <= numero; j++) {
+            factorial *= j;
+        }
+        factoriales.push(factorial);
+    }
+    console.log("Números ingresados:", numeros);
+    console.log("Factoriales de los números:", factoriales);
+}
+factorialArreglo();
+
+//Ejercicio 9: Sumas sucesivas con arreglos
+function sumasSucesivasArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números para realizar sumas sucesivas: "));    
+    let numeros = [];
+    let veces=parseInt(prompt("Ingrese cuantas veces desea sumar cada numero: "));
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
+        numeros.push(numero);
+    }
+    let resultados = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let suma = 0;
+        for (let j = 0; j < veces; j++) {
+            suma += numeros[i];
+        }
+        resultados.push(suma);
+    }
+    console.log("Números ingresados:", numeros);
+    console.log("Resultados de las sumas sucesivas:", resultados);
+}
+sumasSucesivasArreglo();
+
+//Ejercicio 10: Restas sucesivas con arreglos
+function restaSucesivaArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números para realizar restas sucesivas: "));
+    let numeros = [];
+    let valorRestado = parseInt(prompt("Ingrese el valor a restar en cada ciclo: "));
+
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
+        numeros.push(numero);
+    }
+
+    let resultados = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let resta = numeros[i];
+
+        for (; resta >= valorRestado; resta -= valorRestado) {
+            // se sigue restando mientras resta sea mayor o igual al valorRestado
+        }
+
+        resultados.push(resta);
+    }
+
+    console.log("Números ingresados:", numeros);
+    console.log("Resultados de las restas sucesivas:");
+    for (let i = 0; i < numeros.length; i++) {
+        console.log(numeros[i] + " → " + resultados[i]);
+    }
+}
+restaSucesivaArreglo();
+function restasSucesivasArreglo() {
+    let n = parseInt(prompt("Ingrese la cantidad de números para realizar restas sucesivas: "));
+    let numeros = [];
+    let valorRestado = parseInt(prompt("Ingrese el valor a restar en cada ciclo: "));
+    let veces = parseInt(prompt("Ingrese cuantas veces desea restar cada numero: "));
+    for (let i = 0; i < n; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
+        numeros.push(numero);
+    }
+    let resultados = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let resta = numeros[i];
+        for (let j = 0; j < veces; j++) {
+            resta -= valorRestado;
+        }   
+        resultados.push(resta);
+    }
+    console.log("Números ingresados:", numeros);
+    console.log("Resultados de las restas sucesivas:", resultados);
+}
+restasSucesivasArreglo();
+
+//FIN ALGORITMO
+
+
+
+
+
+
+
+ 
+
+
     
 
 
