@@ -88,11 +88,11 @@ NumeroPrimo();
 function InvertirNumero(){
     let numero = prompt("Ingrese un numero para invertir sus digitos: ");
     let numeroInvertido = "";
-    for (let i=numero.length - 1; i>=0; i--){
-        numeroInvertido += numero[i];
+    while (numero>0){
+        let digito = numero % 10;
+        numeroInvertido += digito.toString();
+        numero = Math.floor(numero /10);
     }
-    numeroInvertido = parseInt(numeroInvertido);
-    console.log("Numero ingresado: " + numero);
     console.log("Numero invertido: " + numeroInvertido);
 }
 InvertirNumero();
@@ -315,9 +315,10 @@ function invertirNumero() {
     for (let i = 0; i < numeros.length; i++) {
         let numero = numeros[i];
         let invertido = 0;
-        for (; numero > 0; numero = Math.floor(numero / 10)) {
+        while (numero > 0) {
             let digito = numero % 10;
             invertido = invertido * 10 + digito;
+            numero = Math.floor(numero / 10);
         }
         invertidos.push(invertido);
     }
@@ -338,7 +339,8 @@ function contarDigitosArreglo() {
     for (let i = 0; i < numeros.length; i++) {
         let numero = numeros[i];
         let contador = 0;
-        for (; numero > 0; numero = Math.floor(numero / 10)) {
+        while (numero > 0) {
+            numero = Math.floor(numero / 10);
             contador++;
         }
         conteos.push(contador);
