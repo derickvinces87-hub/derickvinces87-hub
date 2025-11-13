@@ -168,11 +168,10 @@ function RestaSucesiva() {
     let numero = parseInt(prompt("Ingrese el número inicial:"));
     let valor = parseInt(prompt("Ingrese el valor a restar en cada ciclo:"));
     let contador = 0;
-
-    for (; numero >= valor; numero -= valor) {
+    while (numero >= valor) {
+        numero -= valor;
         contador++;
     }
-
     console.log("Resultado final: " + numero);
     console.log("Número de restas realizadas: " + contador);
 }
@@ -403,23 +402,23 @@ function restaSucesivaArreglo() {
         let numero = parseInt(prompt("Ingrese el número " + (i + 1) + ": "));
         numeros.push(numero);
     }
-
     let resultados = [];
+    let contadores =[];
+    let contador=0;
     for (let i = 0; i < numeros.length; i++) {
         let resta = numeros[i];
-
-        for (; resta >= valorRestado; resta -= valorRestado) {
-            // se sigue restando mientras resta sea mayor o igual al valorRestado
+        while (resta >= valorRestado) {
+            resta -= valorRestado;
+            contador++;
         }
-
+        contadores.push(contador);
         resultados.push(resta);
     }
-
     console.log("Números ingresados:", numeros);
     console.log("Resultados de las restas sucesivas:");
-    for (let i = 0; i < numeros.length; i++) {
-        console.log(numeros[i] + " → " + resultados[i]);
-    }
+    console.log(resultados);
+    console.log("Cantidad de restas realizadas para cada número:");
+    console.log(contadores);
 }
 restaSucesivaArreglo();
 function restasSucesivasArreglo() {
