@@ -48,6 +48,7 @@ function contarVocales() {
             contador++;
         }   
     }
+    alert("La frase tiene " + contador + " vocales.");
 }
 contarVocales();
 //4.Contar consonantes.
@@ -145,6 +146,82 @@ function contarCaracteres() {
     alert("Total de caracteres: " + total);
 }
 contarCaracteres();
+//11. Buscar una palabra en el texto.
+function buscarPalabra() {
+    // Pedir el texto completo
+    let texto = prompt("Ingrese el texto:");
+    // Pedir la palabra a buscar
+    let palabra = prompt("Ingrese la palabra a buscar:");
+    // Verificar si la palabra existe en el texto
+    if (texto.includes(palabra)) {
+        alert("La palabra '" + palabra + "' sí se encuentra en el texto.");
+    } else {
+        alert("La palabra '" + palabra + "' NO se encuentra en el texto.");
+    }
+}
+buscarPalabra();
+//12. Contar caracter en el texto.
+function contarCaracter() {
+    // Pedir el texto
+    let texto = prompt("Ingrese el texto: ");
+    // Pedir el carácter a buscar
+    let caracter = prompt("Ingrese el carácter a contar: ");
+    let contador = 0;
+    // Recorremos el texto
+    for (let i = 0; i < texto.length; i++) {
+        if (texto[i] === caracter) {
+            contador++;
+        }
+    }
+    alert("El carácter '" + caracter + "' aparece " + contador + " veces.");
+}
+contarCaracter();
+//13.Contar caracteres en posiciones pares.
+function contarPares() {
+    // Pedir el texto
+    let texto = prompt("Ingrese el texto:");
+    let contador = 0;
+    // Recorremos el texto
+    for (let i = 0; i < texto.length; i++) {
+        if (i % 2 === 0) { // índice par
+            contador++;
+        }
+    }
+    alert("Caracteres en posiciones pares: " + contador);
+}
+contarPares();
+//14.Contar caracteres en posiciones impares.
+function contarImpares() {
+    // Pedir el texto   
+    let texto = prompt("Ingrese el texto:");
+    let contador = 0;
+    // Recorremos el texto
+    for (let i = 0; i < texto.length; i++) {
+        if (i % 2 !== 0) { // índice impar
+            contador++;
+        }
+    }
+    alert("Caracteres en posiciones impares: " + contador);
+}
+contarImpares();
+//15.Añadir un texto al inicio o al final.
+function añadirTexto() {
+    // Pedir el texto original
+    let texto = prompt("Ingrese el texto:");
+    // Pedir el fragmento a añadir
+    let fragmento = prompt("Ingrese el fragmento a añadir:");
+    // Concatenar al inicio y al final
+    let alInicio = fragmento + " " + texto;
+    let alFinal = texto + " " + fragmento;
+    // Mostrar resultados
+    alert("Al inicio: " + alInicio + "\nAl final: " + alFinal);
+}
+añadirTexto();
+//Fin del codigo.
+
+
+
+
 
 
 

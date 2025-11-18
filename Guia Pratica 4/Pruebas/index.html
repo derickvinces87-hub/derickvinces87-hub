@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios de cadenas</title>
+  <style>
+    #texto {
+      width: 600px;
+      height: 200px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #resultados {
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h2>Editor de texto</h2>
+
+  <!-- Div editable en lugar de textarea -->
+  <div id="texto" contenteditable="true"></div>
+
+  <!-- Resultados automáticos -->
+  <div id="resultados"></div>
+
+  <script src="index.js"></script>
+  <script>
+    const editor = document.getElementById("texto");
+    const resultados = document.getElementById("resultados");
+
+    // Cada vez que el usuario escribe o pega algo
+    editor.addEventListener("input", () => {
+      let texto = editor.innerText; // contenido plano
+
+      // Aquí llamamos a tus funciones y mostramos resultados
+      resultados.innerHTML = `
+        <p><b>Palabras:</b> ${contarPalabras(texto)}</p>
+        <p><b>Vocales:</b> ${contarVocales(texto)}</p>
+        <p><b>Consonantes:</b> ${contarConsonantes(texto)}</p>
+        <p><b>Dígitos:</b> ${contarDigitos(texto)}</p>
+        <p><b>Caracteres:</b> ${contarCaracteres(texto)}</p>
+      `;
+    });
+
+    // ⚠️ Ajuste: tus funciones actuales usan alert.
+    // Para este modo automático, conviene que devuelvan el número en vez de alert.
+    // Ejemplo:
+    // function contarPalabras(frase) { ... return contador; }
+    // Así podemos mostrarlo en resultados.innerHTML.
+  </script>
+</body>
+</html>

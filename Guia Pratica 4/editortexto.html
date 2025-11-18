@@ -2,24 +2,33 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador de Análisis de Texto</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicios de cadenas</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Simulador de Análisis de Texto</h1>
-    
-    <textarea id="inputText" placeholder="Escribe aquí tu texto..." rows="10" cols="50"></textarea>
-    
-    <button id="analyzeBtn">Analizar</button>
+  <h2>Ejercicios de cadenas</h2>
+  
+  <!-- Textarea para ingresar el texto -->
+  <textarea id="texto" rows="5" cols="60"></textarea>
+  <br><br>
 
-    <div id="result">
-      <h3>Resultado del Análisis:</h3>
-      <p id="wordCount">Número de palabras: 0</p>
-    </div>
-  </div>
+  <!-- Botones para cada función -->
+  <button onclick="contarPalabras(document.getElementById('texto').value)">1. Contar palabras</button>
+  <button onclick="contarSignosPuntuacion(document.getElementById('texto').value)">2. Contar signos</button>
+  <button onclick="contarVocales(document.getElementById('texto').value)">3. Contar vocales</button>
+  <button onclick="contarConsonantes(document.getElementById('texto').value)">4. Contar consonantes</button>
+  <button onclick="contarDigitos(document.getElementById('texto').value)">5. Contar dígitos</button>
+  <button onclick="contarMayusculasIniciales(document.getElementById('texto').value)">6. Mayúsculas iniciales</button>
+  <button onclick="contarMinusculasIniciales(document.getElementById('texto').value)">7. Minúsculas iniciales</button>
+  <button onclick="contarParrafos(document.getElementById('texto').value)">8. Contar párrafos</button>
+  <button onclick="invertirTexto(document.getElementById('texto').value)">9. Invertir texto</button>
+  <button onclick="contarCaracteres(document.getElementById('texto').value)">10. Contar caracteres</button>
+  <button onclick="buscarPalabra(document.getElementById('texto').value, prompt('Ingrese palabra a buscar:'))">11. Buscar palabra</button>
+  <button onclick="contarCaracter(document.getElementById('texto').value, prompt('Ingrese carácter a contar:'))">12. Contar carácter</button>
+  <button onclick="contarPares(document.getElementById('texto').value)">13. Caracteres pares</button>
+  <button onclick="contarImpares(document.getElementById('texto').value)">14. Caracteres impares</button>
+  <button onclick="añadirTexto(document.getElementById('texto').value, prompt('Ingrese fragmento:'))">15. Añadir texto</button>
 
-  <script src="script.js"></script>
+  <!-- Importar tu archivo index.js -->
+  <script src="index.js"></script>
 </body>
 </html>

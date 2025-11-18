@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor de Texto y Análisis</title>
+  <style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 20px;
+    background: #f0f2f5;
+    color: #333;
+  }
+
+  h2 {
+    color: #2c3e50;
+    text-align: center;
+  }
+
+  #toolbar, #acciones {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  #toolbar button, #acciones button {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+
+  #toolbar button:hover, #acciones button:hover {
+    background: #2980b9;
+  }
+
+  #editor {
+    width: 100%;
+    height: 200px;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  #resultados {
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  #resultados h3 {
+    color: #3498db;
+    margin-bottom: 10px;
+  }
+
+  #resultados p {
+    margin: 6px 0;
+    padding: 6px;
+    border-left: 4px solid #3498db;
+    background: #ecf6fc;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+  <h2>Editor de Texto Enriquecido</h2>
+
+  <!-- Barra de herramientas -->
+  <div id="toolbar">
+    <button onclick="document.execCommand('bold')"><b>Negrita</b></button>
+    <button onclick="document.execCommand('italic')"><i>Cursiva</i></button>
+    <button onclick="document.execCommand('underline')"><u>Subrayado</u></button>
+    <button onclick="ponerMayusculas()">MAYÚSCULAS</button>
+    <button onclick="document.execCommand('copy')">Copiar</button>
+    <button onclick="document.execCommand('cut')">Cortar</button>
+    <button onclick="document.execCommand('paste')">Pegar</button>
+  </div>
+
+  <!-- Botones especiales para funciones con parámetros -->
+  <div id="acciones">
+    <button onclick="accionBuscarPalabra()">Buscar palabra</button>
+    <button onclick="accionContarCaracter()">Contar carácter</button>
+    <button onclick="accionAñadirTexto()">Añadir texto</button>
+  </div>
+
+  <!-- Editor de texto -->
+  <div id="editor" contenteditable="true"></div>
+
+  <!-- Panel de resultados -->
+  <div id="resultados">
+    <h3>Resultados del análisis:</h3>
+    <p id="palabras"></p>
+    <p id="signos"></p>
+    <p id="vocales"></p>
+    <p id="consonantes"></p>
+    <p id="digitos"></p>
+    <p id="mayusculas"></p>
+    <p id="minusculas"></p>
+    <p id="parrafos"></p>
+    <p id="invertido"></p>
+    <p id="caracteres"></p>
+    <p id="pares"></p>
+    <p id="impares"></p>
+  </div>
+
+  <!-- Importar tus funciones -->
+  <script src="index.js"></script>
+  <script>
+    const editor = document.getElementById("editor");
+
+    // Convierte todo el texto a mayúsculas
+    function ponerMayusculas() {
+      editor.innerText = editor.innerText.toUpperCase();
+    }
+
+    // Botón especial: buscar palabra
+    function accionBuscarPalabra() {
+      let texto = editor.innerText;
+      let palabra = prompt("Ingrese la palabra a buscar:");
+      if (buscarPalabra(texto, palabra)) {
+        alert("La palabra '" + palabra + "' sí está en el texto.");
+      } else {
+        alert("La palabra '" + palabra + "' NO está en el texto.");
+      }
+    }
+
+    // Botón especial: contar carácter
+    function accionContarCaracter() {
+      let texto = editor.innerText;
+      let caracter = prompt("Ingrese el carácter a contar:");
+      let cantidad = contarCaracter(texto, caracter);
+      alert("El carácter '" + caracter + "' aparece " + cantidad + " veces.");
+    }
+
+    // Botón especial: añadir texto
+    function accionAñadirTexto() {
+      let texto = editor.innerText;
+      let fragmento = prompt("Ingrese el fragmento a añadir:");
+      let resultado = añadirTexto(texto, fragmento);
+      alert("Al inicio: " + resultado.inicio + "\nAl final: " + resultado.final);
+    }
+
+    // Actualiza resultados automáticamente
+    editor.addEventListener("input", () => {
+      let texto = editor.innerText;
+
+      document.getElementById("palabras").innerText = "Palabras: " + contarPalabras(texto);
+      document.getElementById("signos").innerText = "Signos de puntuación: " + contarSignosPuntuacion(texto);
+      document.getElementById("vocales").innerText = "Vocales: " + contarVocales(texto);
+      document.getElementById("consonantes").innerText = "Consonantes: " + contarConsonantes(texto);
+      document.getElementById("digitos").innerText = "Dígitos: " + contarDigitos(texto);
+      document.getElementById("mayusculas").innerText = "Palabras con mayúscula inicial: " + contarMayusculasIniciales(texto);
+      document.getElementById("minusculas").innerText = "Palabras con minúscula inicial: " + contarMinusculasIniciales(texto);
+      document.getElementById("parrafos").innerText = "Párrafos: " + contarParrafos(texto);
+      document.getElementById("invertido").innerText = "Texto invertido: " + invertirTexto(texto);
+      document.getElementById("caracteres").innerText = "Total de caracteres: " + contarCaracteres(texto);
+      document.getElementById("pares").innerText = "Caracteres en posiciones pares: " + contarPares(texto);
+      document.getElementById("impares").innerText = "Caracteres en posiciones impares: " + contarImpares(texto);
+    });
+  </script>
+</body>
+</html>
