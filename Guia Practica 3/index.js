@@ -444,6 +444,340 @@ function restasSucesivasArreglo() {
 restasSucesivasArreglo();
 
 //FIN ALGORITMO
+function contarSignosPuntuacion() {
+    let frase = prompt("Ingrese una frase: ");
+    let contador = 0;
+
+    for (let i = 0; i < frase.length; i++) {
+        if (
+            frase[i] === "." || 
+            frase[i] === "," || 
+            frase[i] === ";" || 
+            frase[i] === ":" || 
+            frase[i] === "!" || 
+            frase[i] === "?" || 
+            frase[i] === "¡" || 
+            frase[i] === "¿" || 
+            frase[i] === "\"" || 
+            frase[i] === "'" || 
+            frase[i] === "(" || 
+            frase[i] === ")" || 
+            frase[i] === "-"
+        ) {
+            contador++;
+        }
+    }
+    alert("La frase tiene " + contador + " signos de puntuación.");
+}
+contarSignosPuntuacion();
+function contarVocales() {
+    let frase = prompt("Ingrese una frase: ");
+    let contador = 0;
+
+    for (let i = 0; i < frase.length; i++) {
+        if (
+            frase[i] === "a" || frase[i] === "e" || frase[i] === "i" || 
+            frase[i] === "o" || frase[i] === "u" ||
+            frase[i] === "A" || frase[i] === "E" || frase[i] === "I" || 
+            frase[i] === "O" || frase[i] === "U"
+        ) {
+            contador++;
+        }
+    }
+
+    alert("La frase tiene " + contador + " vocales.");
+}
+
+contarVocales();
+function contarConsonantes() {
+    let frase = prompt("Ingrese una frase: ");
+    let contador = 0;
+    for (let i = 0; i < frase.length; i++) {
+        if (
+            frase[i] === "b" || frase[i] === "c" || frase[i] === "d" || frase[i] === "f" ||
+            frase[i] === "g" || frase[i] === "h" || frase[i] === "j" || frase[i] === "k" ||
+            frase[i] === "l" || frase[i] === "m" || frase[i] === "n" || frase[i] === "p" ||
+            frase[i] === "q" || frase[i] === "r" || frase[i] === "s" || frase[i] === "t" ||
+            frase[i] === "v" || frase[i] === "w" || frase[i] === "x" || frase[i] === "y" ||
+            frase[i] === "z" ||
+            frase[i] === "B" || frase[i] === "C" || frase[i] === "D" || frase[i] === "F" ||
+            frase[i] === "G" || frase[i] === "H" || frase[i] === "J" || frase[i] === "K" ||
+            frase[i] === "L" || frase[i] === "M" || frase[i] === "N" || frase[i] === "P" ||
+            frase[i] === "Q" || frase[i] === "R" || frase[i] === "S" || frase[i] === "T" ||
+            frase[i] === "V" || frase[i] === "W" || frase[i] === "X" || frase[i] === "Y" ||
+            frase[i] === "Z"
+        ) {
+            contador++;
+        }
+    }
+    alert("La frase tiene " + contador + " consonantes.");
+}
+contarConsonantes();
+function contarDigitos() {
+    let frase = prompt("Ingrese una frase: ");
+    let contador = 0;
+
+    for (let i = 0; i < frase.length; i++) {
+        if (
+            frase[i] === "0" || frase[i] === "1" || frase[i] === "2" || 
+            frase[i] === "3" || frase[i] === "4" || frase[i] === "5" || 
+            frase[i] === "6" || frase[i] === "7" || frase[i] === "8" || 
+            frase[i] === "9"
+        ) {
+            contador++;
+        }
+    }
+    alert("Cantidad de dígitos: " + contador);
+}
+contarDigitos();
+function buscarPalabra() {
+    // Pedir el texto completo
+    let texto = prompt("Ingrese el texto:");
+    // Pedir la palabra a buscar
+    let palabra = prompt("Ingrese la palabra a buscar:");
+    let contador = 0;
+    // Recorremos el texto
+    for (let i = 0; i <= texto.length - palabra.length; i++) {
+        let subcadena = "";
+        // Construimos una subcadena del mismo tamaño que la palabra
+        for (let j = 0; j < palabra.length; j++) {
+            subcadena += texto[i + j];
+        }
+        // Comparamos la subcadena con la palabra
+        if (subcadena === palabra) {
+            contador++;
+        }
+    }
+    if (contador > 0) {
+        alert("La palabra '" + palabra + "' sí se encuentra en el texto.");
+    } else {
+        alert("La palabra '" + palabra + "' NO se encuentra en el texto.");
+    }
+}
+buscarPalabra();
+//1. Contar numero total de palabras.
+function contarPalabras() {
+    let frase = prompt("Ingrese una frase: ");
+    let contador = 0;
+    // Si la frase no está vacía, empezamos con 1 palabra
+    if (frase.length > 0) {
+        contador = 1;
+    }
+    for (let i = 0; i < frase.length; i++) {
+        // Cada vez que encontramos un espacio, sumamos una palabra
+        if (frase[i] === " ") {
+            contador++;
+        }
+    }
+    alert("La frase tiene " + contador + " palabras.");
+}
+contarPalabras();
+//2. Contar signos de puntuacion.
+function contarSignosPuntuacion() {
+    let frase = prompt("Ingrese una frase: ");
+    let signosPuntuacion= ".,;:!?¡¿\"'()-";
+    let contador = 0;
+    for (let i = 0; i < frase.length; i++) {
+        if (signosPuntuacion.includes(frase[i])) {
+            contador++;
+        }
+    }
+    alert("La frase tiene " + contador + " signos de puntuación.");
+}
+contarSignosPuntuacion();
+//3.Contar vocales.
+function contarVocales() {
+    let frase = prompt("Ingrese una frase: ");
+    let vocales = "aeiouAEIOU";
+    let contador = 0;
+    for (let i = 0; i < frase.length; i++) {
+        if (vocales.includes(frase[i])) {
+            contador++;
+        }   
+    }
+    alert("La frase tiene " + contador + " vocales.");
+}
+contarVocales();
+//4.Contar consonantes.
+function contarConsonantes() {
+    let frase = prompt("Ingrese una frase: ");
+    let consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    let contador = 0;
+    for (let i = 0; i < frase.length; i++) {
+        if (consonantes.includes(frase[i])) {
+            contador++;
+        }
+    }
+    alert("La frase tiene " + contador + " consonantes.");
+}
+contarConsonantes();
+//5.Contar digitos.
+function contarDigitos() {
+    let frase = prompt("Ingrese una frase: ");
+    let digitos = "0123456789";
+    let contador = 0;
+    for (let i = 0; i < frase.length; i++) {
+        if (digitos.includes(frase[i])) {
+            contador++;
+        }
+    }
+    alert("Cantidad de dígitos: " + contador);
+}
+contarDigitos();
+//6.Contar palabras que empiezan con mayuscula.
+function contarMayusculasIniciales() {
+    let frase = prompt("Ingrese una frase: ");
+    let contador = 0;
+    // Revisar la primera letra de la frase
+    if (frase[0] >= "A" && frase[0] <= "Z") {
+        contador++;
+    }
+    for (let i = 0; i < frase.length; i++) {
+        // Si encontramos un espacio, revisamos la siguiente letra
+        if (frase[i] === " " && i + 1 < frase.length) {
+            let siguiente = frase[i + 1];
+            if (siguiente >= "A" && siguiente <= "Z") {
+                contador++;
+            }
+        }
+    }
+    alert("Palabras con mayúscula inicial: " + contador);
+}
+contarMayusculasIniciales();
+//7.Contar palabras que empiezan con minuscula.
+function contarMinusculasIniciales() {
+    let frase = prompt("Ingrese una frase: ");
+    let contador = 0;
+    // Revisar la primera letra de la frase
+    if (frase[0] >= "a" && frase[0] <= "z") {
+        contador++;
+    }   
+    for (let i = 0; i < frase.length; i++) {
+        // Si encontramos un espacio, revisamos la siguiente letra
+        if (frase[i] === " " && i + 1 < frase.length) {
+            let siguiente = frase[i + 1];
+            if (siguiente >= "a" && siguiente <= "z") {
+                contador++;
+            }
+        }
+    }
+    alert("Palabras con minúscula inicial: " + contador);
+}
+contarMinusculasIniciales();
+//8.Contar parrafos.
+function contarParrafos() {
+    let texto = "Hola mundo\nEsto es un segundo párrafo\nY este es un tercero";
+    let contador = 1;
+    for (let i = 0; i < texto.length; i++) {
+        if (texto[i] === '\n') {
+            contador++;
+        }
+    }
+    alert("El texto tiene " + contador + " párrafos.");
+}
+contarParrafos();
+//9.Invertir texto completo.
+function invertirTexto() {
+    let frase = prompt("Ingrese una frase: ");
+    let textoInvertido = "";
+    for (let i = frase.length - 1; i >= 0; i--) {
+        textoInvertido += frase[i];
+    }   
+    alert("Texto invertido: " + textoInvertido);
+}
+invertirTexto();
+//10.Contar todos los caracteres.
+function contarCaracteres() {
+    let frase = prompt("Ingrese una frase: ");
+    let total = frase.length; // cuenta todos los caracteres
+    alert("Total de caracteres: " + total);
+}
+contarCaracteres();
+//11. Buscar una palabra en el texto.
+function buscarPalabra() {
+    // Pedir el texto completo
+    let texto = prompt("Ingrese el texto:");
+    // Pedir la palabra a buscar
+    let palabra = prompt("Ingrese la palabra a buscar:");
+    // Verificar si la palabra existe en el texto
+    if (texto.includes(palabra)) {
+        alert("La palabra '" + palabra + "' sí se encuentra en el texto.");
+    } else {
+        alert("La palabra '" + palabra + "' NO se encuentra en el texto.");
+    }
+}
+buscarPalabra();
+//12. Contar caractere en el texto.
+function contarCaracter() {
+    // Pedir el texto
+    let texto = prompt("Ingrese el texto: ");
+    // Pedir el carácter a buscar
+    let caracter = prompt("Ingrese el carácter a contar: ");
+    let contador = 0;
+    // Recorremos el texto
+    for (let i = 0; i < texto.length; i++) {
+        if (texto[i] === caracter) {
+            contador++;
+        }
+    }
+    alert("El carácter '" + caracter + "' aparece " + contador + " veces.");
+}
+contarCaracter();
+//13.Contar caracteres en posiciones pares.
+function contarPares() {
+    // Pedir el texto
+    let texto = prompt("Ingrese el texto:");
+    let contador = 0;
+    // Recorremos el texto
+    for (let i = 0; i < texto.length; i++) {
+        if (i % 2 === 0) { // índice par
+            contador++;
+        }
+    }
+    alert("Caracteres en posiciones pares: " + contador);
+}
+contarPares();
+//14.Contar caracteres en posiciones impares.
+function contarImpares() {
+    // Pedir el texto   
+    let texto = prompt("Ingrese el texto:");
+    let contador = 0;
+    // Recorremos el texto
+    for (let i = 0; i < texto.length; i++) {
+        if (i % 2 !== 0) { // índice impar
+            contador++;
+        }
+    }
+    alert("Caracteres en posiciones impares: " + contador);
+}
+contarImpares();
+//15.Añadir un texto al inicio o al final.
+function añadirTexto() {
+    // Pedir el texto original
+    let texto = prompt("Ingrese el texto:");
+    // Pedir el fragmento a añadir
+    let fragmento = prompt("Ingrese el fragmento a añadir:");
+    // Concatenar al inicio y al final
+    let alInicio = fragmento + " " + texto;
+    let alFinal = texto + " " + fragmento;
+    // Mostrar resultados
+    alert("Al inicio: " + alInicio + "\nAl final: " + alFinal);
+}
+añadirTexto();
+//Fin del codigo.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
