@@ -96,7 +96,7 @@ function contarMinusculasIniciales(texto) {
 
 //8. Contar párrafos
 function contarParrafos(texto) {
-    let contador = 1;
+    let contador = 0;
     for (let i = 0; i < texto.length; i++) {
         if (texto[i] === "\n") {
             contador++;
