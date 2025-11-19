@@ -765,29 +765,1348 @@ function añadirTexto() {
 }
 añadirTexto();
 //Fin del codigo.
+//1. Contar palabras
+function contarPalabras(texto) {
+    let contador = 0;
+    let i = 0;
+    if (texto.length > 0) {
+        contador = 1;
+    }
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//2. Contar signos de puntuación
+function contarSignosPuntuacion(texto) {
+    let signosPuntuacion = ".,;:!?¡¿\"'()-";
+    let contador = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (signosPuntuacion.includes(texto[i])) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//3. Contar vocales
+function contarVocales(texto) {
+    let vocales = "aeiouAEIOU";
+    let contador = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (vocales.includes(texto[i])) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//4. Contar consonantes
+function contarConsonantes(texto) {
+    let consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    let contador = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (consonantes.includes(texto[i])) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//5. Contar dígitos
+function contarDigitos(texto) {
+    let digitos = "0123456789";
+    let contador = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (digitos.includes(texto[i])) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//6. Contar palabras que empiezan con mayúscula
+function contarMayusculasIniciales(texto) {
+    let contador = 0;
+    let i = 0;
+    if (texto[0] >= "A" && texto[0] <= "Z") {
+        contador++;
+    }
+    while (i < texto.length) {
+        if (texto[i] === " " && i + 1 < texto.length) {
+            let siguiente = texto[i + 1];
+            if (siguiente >= "A" && siguiente <= "Z") {
+                contador++;
+            }
+        }
+        i++;
+    }
+    return contador;
+}
 
+//7. Contar palabras que empiezan con minúscula
+function contarMinusculasIniciales(texto) {
+    let contador = 0;
+    let i = 0;
+    if (texto[0] >= "a" && texto[0] <= "z") {
+        contador++;
+    }
+    while (i < texto.length) {
+        if (texto[i] === " " && i + 1 < texto.length) {
+            let siguiente = texto[i + 1];
+            if (siguiente >= "a" && siguiente <= "z") {
+                contador++;
+            }
+        }
+        i++;
+    }
+    return contador;
+}
 
+//8. Contar párrafos
+function contarParrafos(texto) {
+    let contador = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === "\n") {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//9. Invertir texto completo
+function invertirTexto(texto) {
+    let invertido = "";
+    let i = texto.length - 1;
+    while (i >= 0) {
+        invertido += texto[i];
+        i--;
+    }
+    return invertido;
+}
 
+//10. Contar todos los caracteres
+function contarCaracteres(texto) {
+    return texto.length;
+}
 
+//11. Buscar una palabra en el texto
+function buscarPalabra(texto, palabra) {
+    return texto.includes(palabra);
+}
 
+//12. Contar un carácter en el texto
+function contarCaracter(texto, caracter) {
+    let contador = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === caracter) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//13. Contar caracteres en posiciones pares
+function contarPares(texto) {
+    let contador = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (i % 2 === 0) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//14. Contar caracteres en posiciones impares
+function contarImpares(texto) {
+    let contador = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (i % 2 !== 0) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
 
+//15. Añadir un texto al inicio o al final
+function añadirTexto(texto, fragmento) {
+    let alInicio = fragmento + " " + texto;
+    let alFinal = texto + " " + fragmento;
+    return { inicio: alInicio, final: alFinal };
+}
+// Fin del código con bucles while
+//1. Contar palabras con bandera
+function contarPalabras(texto) {
+    let contador = 0;
+    let i = 0;
+    let bandera = true; // mientras haya caracteres por recorrer
+    if (texto.length > 0) contador = 1;
 
+    while (bandera) {
+        if (texto[i] === " ") {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
 
+//2. Contar signos de puntuación
+function contarSignosPuntuacion(texto) {
+    let signosPuntuacion = ".,;:!?¡¿\"'()-";
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
 
+    while (bandera) {
+        if (signosPuntuacion.includes(texto[i])) {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
 
+//3. Contar vocales
+function contarVocales(texto) {
+    let vocales = "aeiouAEIOU";
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
 
+    while (bandera) {
+        if (vocales.includes(texto[i])) {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
 
- 
+//4. Contar consonantes
+function contarConsonantes(texto) {
+    let consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
 
+    while (bandera) {
+        if (consonantes.includes(texto[i])) {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
 
-    
+//5. Contar dígitos
+function contarDigitos(texto) {
+    let digitos = "0123456789";
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
 
+    while (bandera) {
+        if (digitos.includes(texto[i])) {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
 
+//6. Contar palabras que empiezan con mayúscula
+function contarMayusculasIniciales(texto) {
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
+
+    if (texto[0] >= "A" && texto[0] <= "Z") contador++;
+
+    while (bandera) {
+        if (texto[i] === " " && i + 1 < texto.length) {
+            let siguiente = texto[i + 1];
+            if (siguiente >= "A" && siguiente <= "Z") {
+                contador++;
+            }
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
+
+//7. Contar palabras que empiezan con minúscula
+function contarMinusculasIniciales(texto) {
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
+
+    if (texto[0] >= "a" && texto[0] <= "z") contador++;
+
+    while (bandera) {
+        if (texto[i] === " " && i + 1 < texto.length) {
+            let siguiente = texto[i + 1];
+            if (siguiente >= "a" && siguiente <= "z") {
+                contador++;
+            }
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
+
+//8. Contar párrafos
+function contarParrafos(texto) {
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
+
+    while (bandera) {
+        if (texto[i] === "\n") {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
+
+//9. Invertir texto completo
+function invertirTexto(texto) {
+    let invertido = "";
+    let i = texto.length - 1;
+    let bandera = true;
+
+    while (bandera) {
+        invertido += texto[i];
+        i--;
+        if (i < 0) bandera = false;
+    }
+    return invertido;
+}
+
+//10. Contar todos los caracteres
+function contarCaracteres(texto) {
+    return texto.length;
+}
+
+//11. Buscar una palabra en el texto
+function buscarPalabra(texto, palabra) {
+    return texto.includes(palabra);
+}
+
+//12. Contar un carácter en el texto
+function contarCaracter(texto, caracter) {
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
+
+    while (bandera) {
+        if (texto[i] === caracter) {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
+
+//13. Contar caracteres en posiciones pares
+function contarPares(texto) {
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
+
+    while (bandera) {
+        if (i % 2 === 0) {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
+
+//14. Contar caracteres en posiciones impares
+function contarImpares(texto) {
+    let contador = 0;
+    let i = 0;
+    let bandera = true;
+
+    while (bandera) {
+        if (i % 2 !== 0) {
+            contador++;
+        }
+        i++;
+        if (i >= texto.length) bandera = false;
+    }
+    return contador;
+}
+
+//15. Añadir un texto al inicio o al final
+function añadirTexto(texto, fragmento) {
+    let alInicio = fragmento + " " + texto;
+    let alFinal = texto + " " + fragmento;
+    return { inicio: alInicio, final: alFinal };
+}
+//1. Contar palabras
+function contarPalabras(texto) {
+    let palabras = [];
+    let palabra = "";
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                palabras.push(palabra);
+                palabra = "";
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") {
+        palabras.push(palabra);
+    }
+    return palabras.length;
+}
+
+//2. Contar signos de puntuación
+function contarSignosPuntuacion(texto) {
+    let signosPuntuacion = [];
+    let s = ".,;:!?¡¿\"'()-";
+    let j = 0;
+    while (j < s.length) {
+        signosPuntuacion.push(s[j]);
+        j++;
+    }
+
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < caracteres.length) {
+        if (signosPuntuacion.includes(caracteres[i])) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//3. Contar vocales
+function contarVocales(texto) {
+    let vocales = [];
+    let v = "aeiouAEIOU";
+    let j = 0;
+    while (j < v.length) {
+        vocales.push(v[j]);
+        j++;
+    }
+
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < caracteres.length) {
+        if (vocales.includes(caracteres[i])) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//4. Contar consonantes
+function contarConsonantes(texto) {
+    let consonantes = [];
+    let c = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    let j = 0;
+    while (j < c.length) {
+        consonantes.push(c[j]);
+        j++;
+    }
+
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < caracteres.length) {
+        if (consonantes.includes(caracteres[i])) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//5. Contar dígitos
+function contarDigitos(texto) {
+    let digitos = [];
+    let d = "0123456789";
+    let j = 0;
+    while (j < d.length) {
+        digitos.push(d[j]);
+        j++;
+    }
+
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < caracteres.length) {
+        if (digitos.includes(caracteres[i])) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//6. Contar palabras que empiezan con mayúscula
+function contarMayusculasIniciales(texto) {
+    let palabras = [];
+    let palabra = "";
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                palabras.push(palabra);
+                palabra = "";
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") {
+        palabras.push(palabra);
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < palabras.length) {
+        let primera = palabras[i][0];
+        if (primera >= "A" && primera <= "Z") {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//7. Contar palabras que empiezan con minúscula
+function contarMinusculasIniciales(texto) {
+    let palabras = [];
+    let palabra = "";
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                palabras.push(palabra);
+                palabra = "";
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") {
+        palabras.push(palabra);
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < palabras.length) {
+        let primera = palabras[i][0];
+        if (primera >= "a" && primera <= "z") {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//8. Contar párrafos
+function contarParrafos(texto) {
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let contador = 1;
+    i = 0;
+    while (i < caracteres.length) {
+        if (caracteres[i] === "\n") {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//9. Invertir texto completo
+function invertirTexto(texto) {
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let invertido = "";
+    i = caracteres.length - 1;
+    while (i >= 0) {
+        invertido += caracteres[i];
+        i--;
+    }
+    return invertido;
+}
+
+//10. Contar todos los caracteres
+function contarCaracteres(texto) {
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+    return caracteres.length;
+}
+
+//11. Buscar una palabra en el texto
+function buscarPalabra(texto, palabra) {
+    let palabras = [];
+    let temp = "";
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (temp !== "") {
+                palabras.push(temp);
+                temp = "";
+            }
+        } else {
+            temp += texto[i];
+        }
+        i++;
+    }
+    if (temp !== "") {
+        palabras.push(temp);
+    }
+
+    i = 0;
+    while (i < palabras.length) {
+        if (palabras[i] === palabra) {
+            return true;
+        }
+        i++;
+    }
+    return false;
+}
+
+//12. Contar un carácter en el texto
+function contarCaracter(texto, caracter) {
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < caracteres.length) {
+        if (caracteres[i] === caracter) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//13. Contar caracteres en posiciones pares
+function contarPares(texto) {
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < caracteres.length) {
+        if (i % 2 === 0) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//14. Contar caracteres en posiciones impares
+function contarImpares(texto) {
+    let caracteres = [];
+    let i = 0;
+    while (i < texto.length) {
+        caracteres.push(texto[i]);
+        i++;
+    }
+
+    let contador = 0;
+    i = 0;
+    while (i < caracteres.length) {
+        if (i % 2 !== 0) {
+            contador++;
+        }
+        i++;
+    }
+    return contador;
+}
+
+//15. Añadir un texto al inicio o al final
+function añadirTexto(texto, fragmento) {
+    let alInicio = fragmento + " " + texto;
+    let alFinal = texto + " " + fragmento;
+    return { inicio: alInicio, final: alFinal };
+}
+// 1. Contar palabras que empiezan con mayúscula y con minúscula
+function contarMayusMinus(texto) {
+    let palabras = [];
+    let palabra = "";
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                palabras.push(palabra);
+                palabra = "";
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") palabras.push(palabra);
+
+    let mayus = 0, minus = 0;
+    i = 0;
+    while (i < palabras.length) {
+        let primera = palabras[i][0];
+        if (primera >= "A" && primera <= "Z") mayus++;
+        if (primera >= "a" && primera <= "z") minus++;
+        i++;
+    }
+    return { mayusculas: mayus, minusculas: minus };
+}
+
+// 2. Contar caracteres pares que son vocales e impares que son consonantes
+function contarParesVocalesImparesConsonantes(texto) {
+    let vocales = [];
+    let v = "aeiouAEIOU";
+    let j = 0; while (j < v.length) { vocales.push(v[j]); j++; }
+
+    let consonantes = [];
+    let c = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    j = 0; while (j < c.length) { consonantes.push(c[j]); j++; }
+
+    let arr = [];
+    let i = 0; while (i < texto.length) { arr.push(texto[i]); i++; }
+
+    let paresVocales = 0, imparesConsonantes = 0;
+    i = 0;
+    while (i < arr.length) {
+        if (i % 2 === 0 && vocales.includes(arr[i])) paresVocales++;
+        if (i % 2 !== 0 && consonantes.includes(arr[i])) imparesConsonantes++;
+        i++;
+    }
+    return { paresVocales, imparesConsonantes };
+}
+
+// 3. Contar párrafos y palabras en cada párrafo
+function contarParrafosYPalabras(texto) {
+    let parrafos = [];
+    let parrafo = "";
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === "\n") {
+            parrafos.push(parrafo);
+            parrafo = "";
+        } else {
+            parrafo += texto[i];
+        }
+        i++;
+    }
+    if (parrafo !== "") parrafos.push(parrafo);
+
+    let resultado = [];
+    i = 0;
+    while (i < parrafos.length) {
+        let palabras = [];
+        let palabra = "";
+        let j = 0;
+        while (j < parrafos[i].length) {
+            if (parrafos[i][j] === " ") {
+                if (palabra !== "") {
+                    palabras.push(palabra);
+                    palabra = "";
+                }
+            } else {
+                palabra += parrafos[i][j];
+            }
+            j++;
+        }
+        if (palabra !== "") palabras.push(palabra);
+        resultado.push({ parrafo: i + 1, palabras: palabras.length });
+        i++;
+    }
+    return resultado;
+}
+
+// 4. Buscar una palabra y contar cuántas veces aparece
+function contarOcurrencias(texto, palabraBuscada) {
+    let palabras = [];
+    let palabra = "";
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                palabras.push(palabra);
+                palabra = "";
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") palabras.push(palabra);
+
+    let contador = 0;
+    i = 0;
+    while (i < palabras.length) {
+        if (palabras[i] === palabraBuscada) contador++;
+        i++;
+    }
+    return contador;
+}
+
+// 5. Invertir texto y contar signos de puntuación
+function invertirYContarSignos(texto) {
+    let arr = [];
+    let i = 0; while (i < texto.length) { arr.push(texto[i]); i++; }
+
+    let invertido = "";
+    i = arr.length - 1;
+    while (i >= 0) {
+        invertido += arr[i];
+        i--;
+    }
+
+    let signos = [];
+    let s = ".,;:!?¡¿\"'()-";
+    let j = 0; while (j < s.length) { signos.push(s[j]); j++; }
+
+    let contador = 0;
+    i = 0;
+    while (i < invertido.length) {
+        if (signos.includes(invertido[i])) contador++;
+        i++;
+    }
+    return { invertido, signos: contador };
+}
+
+// 6. Contar palabras que terminan en vocal y en consonante
+function contarFinalVocalConsonante(texto) {
+    let palabras = [];
+    let palabra = "";
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                palabras.push(palabra);
+                palabra = "";
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") palabras.push(palabra);
+
+    let vocales = [];
+    let v = "aeiouAEIOU";
+    let j = 0; while (j < v.length) { vocales.push(v[j]); j++; }
+
+    let consonantes = [];
+    let c = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    j = 0; while (j < c.length) { consonantes.push(c[j]); j++; }
+
+    let finVocal = 0, finConsonante = 0;
+    i = 0;
+    while (i < palabras.length) {
+        let ultima = palabras[i][palabras[i].length - 1];
+        if (vocales.includes(ultima)) finVocal++;
+        if (consonantes.includes(ultima)) finConsonante++;
+        i++;
+    }
+    return { finVocal, finConsonante };
+}
+
+// 7. Contar dígitos y palabras con dígitos
+function contarDigitosYPalabrasConDigitos(texto) {
+    let digitos = [];
+    let d = "0123456789";
+    let j = 0; while (j < d.length) { digitos.push(d[j]); j++; }
+
+    let arr = [];
+    let i = 0; while (i < texto.length) { arr.push(texto[i]); i++; }
+
+    let totalDigitos = 0;
+    i = 0;
+    while (i < arr.length) {
+        if (digitos.includes(arr[i])) totalDigitos++;
+        i++;
+    }
+
+    let palabras = [];
+    let palabra = "";
+    i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                palabras.push(palabra);
+                palabra = "";
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") palabras.push(palabra);
+
+    let palabrasConDigitos = 0;
+    i = 0;
+    while (i < palabras.length) {
+        let tieneDigito = false;
+        j = 0;
+        while (j < palabras[i].length) {
+            if (digitos.includes(palabras[i][j])) tieneDigito = true;
+            j++;
+        }
+        if (tieneDigito) palabrasConDigitos++;
+        i++;
+    }
+    return { totalDigitos, palabrasConDigitos };
+}
+
+// 8. Contar espacios y saltos de línea
+function contarEspaciosSaltos(texto) {
+    let arr = [];
+    let i = 0; while (i < texto.length) { arr.push(texto[i]); i++; }
+
+    let espacios = 0, saltos = 0;
+    i = 0;
+    while (i < arr.length) {
+        if (arr[i] === " ") espacios++;
+        if (arr[i] === "\n") saltos++;
+        i++;
+    }
+    return { espacios, saltos };
+}
+// 9. Añadir fragmento al inicio y contar palabras con mayúscula
+function añadirYContarMayus(texto, fragmento) {
+    let nuevoTexto = fragmento + " " + texto;
+
+    let palabras = [];
+    let palabra = "";
+    let i = 0;
+    while (i < nuevoTexto.length) {
+        if (nuevoTexto[i] === " ") {
+            if (palabra !== "") {
+                palabras.push(palabra);
+                palabra = "";
+            }
+        } else {
+            palabra += nuevoTexto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") palabras.push(palabra);
+
+    let contador = 0;
+    i = 0;
+    while (i < palabras.length) {
+        let primera = palabras[i][0];
+        if (primera >= "A" && primera <= "Z") contador++;
+        i++;
+    }
+    return { nuevoTexto, mayusculasIniciales: contador };
+}
+
+// 10. Contar simultáneamente vocales, consonantes, dígitos y signos de puntuación
+function contarTodo(texto) {
+    let vocales = [];
+    let v = "aeiouAEIOU";
+    let j = 0; while (j < v.length) { vocales.push(v[j]); j++; }
+
+    let consonantes = [];
+    let c = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    j = 0; while (j < c.length) { consonantes.push(c[j]); j++; }
+
+    let digitos = [];
+    let d = "0123456789";
+    j = 0; while (j < d.length) { digitos.push(d[j]); j++; }
+
+    let signos = [];
+    let s = ".,;:!?¡¿\"'()-";
+    j = 0; while (j < s.length) { signos.push(s[j]); j++; }
+
+    let arr = [];
+    let i = 0; while (i < texto.length) { arr.push(texto[i]); i++; }
+
+    let totalVocales = 0, totalConsonantes = 0, totalDigitos = 0, totalSignos = 0;
+    i = 0;
+    while (i < arr.length) {
+        if (vocales.includes(arr[i])) totalVocales++;
+        else if (consonantes.includes(arr[i])) totalConsonantes++;
+        else if (digitos.includes(arr[i])) totalDigitos++;
+        else if (signos.includes(arr[i])) totalSignos++;
+        i++;
+    }
+    return { vocales: totalVocales, consonantes: totalConsonantes, digitos: totalDigitos, signos: totalSignos };
+}
+// 1. Contar palabras que empiezan con mayúscula y con minúscula
+function contarMayusMinus(texto) {
+    let mayus = 0, minus = 0;
+    let i = 0;
+    let inicioPalabra = true;
+
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            inicioPalabra = true;
+        } else {
+            if (inicioPalabra) {
+                if (texto[i] >= "A" && texto[i] <= "Z") mayus++;
+                if (texto[i] >= "a" && texto[i] <= "z") minus++;
+                inicioPalabra = false;
+            }
+        }
+        i++;
+    }
+    return { mayusculas: mayus, minusculas: minus };
+}
+
+// 2. Contar caracteres pares que son vocales e impares que son consonantes
+function contarParesVocalesImparesConsonantes(texto) {
+    let paresVocales = 0, imparesConsonantes = 0;
+    let vocales = "aeiouAEIOU";
+    let consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    let i = 0;
+
+    while (i < texto.length) {
+        if (i % 2 === 0 && vocales.includes(texto[i])) paresVocales++;
+        if (i % 2 !== 0 && consonantes.includes(texto[i])) imparesConsonantes++;
+        i++;
+    }
+    return { paresVocales, imparesConsonantes };
+}
+
+// 3. Contar párrafos y palabras en cada párrafo
+function contarParrafosYPalabras(texto) {
+    let i = 0;
+    let parrafo = 1;
+    let palabras = 0;
+    let inicioPalabra = false;
+    let resultado = [];
+
+    while (i < texto.length) {
+        if (texto[i] === "\n") {
+            resultado.push({ parrafo, palabras });
+            parrafo++;
+            palabras = 0;
+            inicioPalabra = false;
+        } else if (texto[i] === " ") {
+            inicioPalabra = false;
+        } else {
+            if (!inicioPalabra) {
+                palabras++;
+                inicioPalabra = true;
+            }
+        }
+        i++;
+    }
+    resultado.push({ parrafo, palabras });
+    return resultado;
+}
+
+// 4. Buscar una palabra y contar cuántas veces aparece
+function contarOcurrencias(texto, palabraBuscada) {
+    let i = 0;
+    let palabra = "";
+    let contador = 0;
+
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra === palabraBuscada) contador++;
+            palabra = "";
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra === palabraBuscada) contador++;
+    return contador;
+}
+
+// 5. Invertir texto y contar signos de puntuación
+function invertirYContarSignos(texto) {
+    let invertido = "";
+    let i = texto.length - 1;
+    while (i >= 0) {
+        invertido += texto[i];
+        i--;
+    }
+
+    let signos = ".,;:!?¡¿\"'()-";
+    let contador = 0;
+    i = 0;
+    while (i < invertido.length) {
+        if (signos.includes(invertido[i])) contador++;
+        i++;
+    }
+    return { invertido, signos: contador };
+}
+
+// 6. Contar palabras que terminan en vocal y en consonante
+function contarFinalVocalConsonante(texto) {
+    let vocales = "aeiouAEIOU";
+    let consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    let i = 0;
+    let palabra = "";
+    let finVocal = 0, finConsonante = 0;
+
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                let ultima = palabra[palabra.length - 1];
+                if (vocales.includes(ultima)) finVocal++;
+                if (consonantes.includes(ultima)) finConsonante++;
+                palabra = "";
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "") {
+        let ultima = palabra[palabra.length - 1];
+        if (vocales.includes(ultima)) finVocal++;
+        if (consonantes.includes(ultima)) finConsonante++;
+    }
+    return { finVocal, finConsonante };
+}
+
+// 7. Contar dígitos y palabras con dígitos
+function contarDigitosYPalabrasConDigitos(texto) {
+    let digitos = "0123456789";
+    let totalDigitos = 0;
+    let palabrasConDigitos = 0;
+    let palabra = "";
+    let tieneDigito = false;
+    let i = 0;
+
+    while (i < texto.length) {
+        if (digitos.includes(texto[i])) {
+            totalDigitos++;
+            tieneDigito = true;
+        }
+        if (texto[i] === " ") {
+            if (palabra !== "") {
+                if (tieneDigito) palabrasConDigitos++;
+                palabra = "";
+                tieneDigito = false;
+            }
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+    if (palabra !== "" && tieneDigito) palabrasConDigitos++;
+    return { totalDigitos, palabrasConDigitos };
+}
+
+// 8. Contar espacios y saltos de línea
+function contarEspaciosSaltos(texto) {
+    let espacios = 0, saltos = 0;
+    let i = 0;
+    while (i < texto.length) {
+        if (texto[i] === " ") espacios++;
+        if (texto[i] === "\n") saltos++;
+        i++;
+    }
+    return { espacios, saltos };
+}
+
+// 9. Añadir fragmento al inicio y contar palabras con mayúscula
+function añadirYContarMayus(texto, fragmento) {
+    let nuevoTexto = fragmento + " " + texto;
+    let mayus = 0;
+    let i = 0;
+    let inicioPalabra = true;
+
+    while (i < nuevoTexto.length) {
+        if (nuevoTexto[i] === " ") {
+            inicioPalabra = true;
+        } else {
+            if (inicioPalabra) {
+                if (nuevoTexto[i] >= "A" && nuevoTexto[i] <= "Z") mayus++;
+                inicioPalabra = false;
+            }
+        }
+        i++;
+    }
+    return { nuevoTexto, mayusculasIniciales: mayus };
+}
+
+// 10. Contar simultáneamente vocales, consonantes, dígitos y signos de puntuación
+function contarTodo(texto) {
+    let vocales = "aeiouAEIOU";
+    let consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    let digitos = "0123456789";
+    let signos = ".,;:!?¡¿\"'()-";
+
+    let totalVocales = 0, totalConsonantes = 0, totalDigitos = 0, totalSignos = 0;
+    let i = 0;
+
+    while (i < texto.length) {
+        if (vocales.includes(texto[i])) totalVocales++;
+        else if (consonantes.includes(texto[i])) totalConsonantes++;
+        else if (digitos.includes(texto[i])) totalDigitos++;
+        else if (signos.includes(texto[i])) totalSignos++;
+        i++;
+    }
+    return { vocales: totalVocales, consonantes: totalConsonantes, digitos: totalDigitos, signos: totalSignos };
+}
+function contarCuentaspalabrastienenmasdetresvocales(texto) {
+    let i = 0;
+    let palabra = "";
+    let contadorPalabras = 0;   
+    let vocales = "aeiouAEIOU";
+
+    while (i < texto.length) {
+        if (texto[i] === " ") {
+            // Procesar la palabra acumulada
+            let contadorVocales = 0;
+            for (let j = 0; j < palabra.length; j++) {
+                if (vocales.includes(palabra[j])) {
+                    contadorVocales++;
+                }
+            }
+            if (contadorVocales > 3) {
+                contadorPalabras++;
+            }
+            palabra = ""; // reiniciar
+        } else {
+            palabra += texto[i];
+        }
+        i++;
+    }
+
+    // Procesar la última palabra (si no termina en espacio)
+    if (palabra.length > 0) {
+        let contadorVocales = 0;
+        for (let j = 0; j < palabra.length; j++) {
+            if (vocales.includes(palabra[j])) {
+                contadorVocales++;
+            }
+        }
+        if (contadorVocales > 3) {
+            contadorPalabras++;
+        }
+    }
+
+    return contadorPalabras;
+}
+function contarCuentaspalabrastienenmasdetresvocales(texto) {
+    let palabras = [];          
+    let palabraActual = [];     
+    let vocales = "aeiouAEIOU"; 
+    let contadorPalabras = 0;
+    // recorrer el texto carácter por carácter
+    for (let i = 0; i < texto.length; i++) {
+        let caracter = texto[i];
+        if (caracter === " ") {
+            if (palabraActual.length > 0) {
+                palabras.push(palabraActual); // guardar la palabra formada
+                palabraActual = [];           // reiniciar
+            }
+        } else {
+            palabraActual.push(caracter);     // agregar letra a la palabra
+        }
+    }
+    // procesar la última palabra si existe
+    if (palabraActual.length > 0) {
+        palabras.push(palabraActual);
+    }
+    // recorrer cada palabra y contar vocales
+    for (let i = 0; i < palabras.length; i++) {
+        let contadorVocales = 0;
+        for (let j = 0; j < palabras[i].length; j++) {
+            if (vocales.includes(palabras[i][j])) {
+                contadorVocales++;
+            }
+        }
+        if (contadorVocales > 3) {
+            contadorPalabras++;
+        }
+    }
+    return contadorPalabras;
+}
