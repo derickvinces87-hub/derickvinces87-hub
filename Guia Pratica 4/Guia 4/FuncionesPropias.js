@@ -1,3 +1,12 @@
+//Este archivo a sido realizado por: Derick Lizandro Vinces Ronquillo.
+//Carrera: Ingnieria de software.
+//Universidad: Universidad Estatal de Milagro (UNEMI).
+//Asignatura: Algoritmo y logica de programacion.
+//Paralelo: B1
+//Docente: MSc. Daniel Vera.
+//Guia pratica N°4: Cadenas.
+//Fecha de creacion: 17/11/2025
+//Fecha entrega: 19/11/2025
 //1. Contar número total de palabras
 function contarPalabras(texto) {
     let contador = 0;
